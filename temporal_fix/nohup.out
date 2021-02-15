@@ -1,0 +1,25 @@
+No valid config provided (reading cloud_config.ini).
+Cloud IoT is disabled.
+{'CPU': 46.698, 'temperature': 35.163421630859375, 'humidity': 35.8489990234375, 'ambient_light': 53.86, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.09544372558594, 'humidity': 35.58502197265625, 'ambient_light': 39.71, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.208740234375, 'humidity': 35.5194091796875, 'ambient_light': 37.32, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.12565612792969, 'humidity': 35.61553955078125, 'ambient_light': 55.52, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.15838623046875, 'humidity': 35.7025146484375, 'ambient_light': 57.5, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.09544372558594, 'humidity': 35.28900146484375, 'ambient_light': 58.56, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.012359619140625, 'humidity': 35.1409912109375, 'ambient_light': 58.74, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 34.98466491699219, 'humidity': 35.90545654296875, 'ambient_light': 58.480000000000004, 'pressure': 945.9359053930328}
+{'CPU': 46.16, 'temperature': 35.052642822265625, 'humidity': 35.528564453125, 'ambient_light': 38.88, 'pressure': 945.9359053930328}
+Traceback (most recent call last):
+  File "enviro_demo.py", line 78, in <module>
+    main()
+  File "enviro_demo.py", line 65, in main
+    sensors['ambient_light'] = enviro.ambient_light
+  File "/usr/lib/python3/dist-packages/coral/enviro/board.py", line 109, in ambient_light
+    return opt3001.get_lux(smbus.SMBus(1),int("0x45",16))
+  File "/usr/lib/python3/dist-packages/coral/enviro/google-coral/temporal_fix/opt3001.py", line 50, in get_lux
+    wert=read_word_data_swapped(bus,address,0x00)
+  File "/usr/lib/python3/dist-packages/coral/enviro/google-coral/temporal_fix/opt3001.py", line 24, in read_word_data_swapped
+    return tauscheBytes(bus.read_word_data(address,register))
+OSError: [Errno 121] Remote I/O error
+No valid config provided (reading /usr/lib/python3/dist-packages/coral/enviro/google-coral/temporal_fix/cloud_config.ini).
+Cloud IoT is disabled.
