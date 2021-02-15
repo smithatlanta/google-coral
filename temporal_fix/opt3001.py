@@ -60,4 +60,3 @@ class Measurement:
 	lux: float
 	lux2: float = None
 	timestamp: int = 0
-
