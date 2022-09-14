@@ -61,10 +61,12 @@ def main():
     sensors = {}
     read_period = int(args.upload_delay / (2 * args.display_duration))
     for read_count in itertools.count():
+        # convert from celsius to fahrenheit
         sensors['temperature'] = enviro.temperature * (9.0 / 5.0) + 32
         sensors['humidity'] = enviro.humidity
         sensors['ambient_light'] = enviro.ambient_light
-        sensors['pressure'] = enviro.pressure
+        # convert from kPa to inHg
+        sensors['pressure'] = enviro.pressure * 0.2953
         print(sensors)
 
         msg = 'Temp: %.2f C\n' % _none_to_nan(sensors['temperature'])
