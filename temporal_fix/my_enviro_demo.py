@@ -73,7 +73,7 @@ def main():
         msg += 'RH: %.2f %%\n' % _none_to_nan(sensors['humidity'])
         msg += 'Light: %.2f lux\n' % _none_to_nan(sensors['ambient_light'])
         msg += 'Pressure: %.2f kPa' % _none_to_nan(sensors['pressure'])
-        sensorTime = time.ctime()
+        sensorTime = time.localtime()
         json_body = [
             {
                 "measurement": "coral",
