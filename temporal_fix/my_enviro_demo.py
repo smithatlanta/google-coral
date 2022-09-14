@@ -67,27 +67,27 @@ def main():
         sensors['ambient_light'] = enviro.ambient_light
         # convert from kPa to inHg
         sensors['pressure'] = enviro.pressure * 0.2953
-        print(sensors)
+        # print(sensors)
 
         msg = 'Temp: %.2f C\n' % _none_to_nan(sensors['temperature'])
         msg += 'RH: %.2f %%\n' % _none_to_nan(sensors['humidity'])
         msg += 'Light: %.2f lux\n' % _none_to_nan(sensors['ambient_light'])
         msg += 'Pressure: %.2f kPa' % _none_to_nan(sensors['pressure'])
         sensorTime = time.ctime()
-        # json_body = [
-        #     {
-        #         "measurement": "coral",
-        #         "time": sensorTime,
-        #         "fields": {
-        #             "temperature":  _none_to_zero(sensors['temperature']),
-        #             "humidity": _none_to_zero(sensors['humidity']),
-        #             "ambient_light": _none_to_zero(sensors['ambient_light']),
-        #             "pressure": _none_to_zero(sensors['pressure'])
-        #         }
-        #     }
-        # ]
+        json_body = [
+            {
+                "measurement": "coral",
+                "time": sensorTime,
+                "fields": {
+                    "temperature":  _none_to_zero(sensors['temperature']),
+                    "humidity": _none_to_zero(sensors['humidity']),
+                    "ambient_light": _none_to_zero(sensors['ambient_light']),
+                    "pressure": _none_to_zero(sensors['pressure'])
+                }
+            }
+        ]
+        print(json_body)
         update_display(enviro.display, msg)
-        print(msg)
         # client.write_points(json_body)
         sleep(args.display_duration)
 
