@@ -21,7 +21,7 @@ from my_enviro_board import MyEnviroBoard
 import argparse
 import itertools
 import os
-import time
+from datetime import datetime
 
 DEFAULT_CONFIG_LOCATION = os.path.join(
     os.path.dirname(__file__), 'cloud_config.ini')
@@ -73,7 +73,7 @@ def main():
         msg += 'RH: %.2f %%\n' % _none_to_nan(sensors['humidity'])
         msg += 'Light: %.2f lux\n' % _none_to_nan(sensors['ambient_light'])
         msg += 'Pressure: %.2f kPa' % _none_to_nan(sensors['pressure'])
-        sensorTime = time.localtime()
+        sensorTime = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
         json_body = [
             {
                 "measurement": "coral",
