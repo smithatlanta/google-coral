@@ -64,7 +64,7 @@ def main():
         sensors['temperature'] = enviro.temperature * (9.0 / 5.0) + 32
         sensors['humidity'] = enviro.humidity
         sensors['ambient_light'] = enviro.ambient_light
-        sensors['pressure'] = enviro.pressure * 10.0
+        sensors['pressure'] = enviro.pressure
         print(sensors)
 
         msg = 'Temp: %.2f C\n' % _none_to_nan(sensors['temperature'])
