@@ -41,8 +41,8 @@ def _none_to_zero(val):
 
 
 def main():
-    # client = InfluxDBClient(
-    #     '10.0.2.100', 8086, 'coralmonitor', 'coralmonitor', 'coralstats')
+    client = InfluxDBClient(
+        '10.0.2.100', 8086, 'coralmonitor', 'coralmonitor', 'coralstats')
 
     # Pull arguments from command line.
     parser = argparse.ArgumentParser(description='Enviro Kit Demo')
@@ -88,7 +88,7 @@ def main():
         ]
         print(json_body)
         update_display(enviro.display, msg)
-        # client.write_points(json_body)
+        client.write_points(json_body)
         sleep(args.display_duration)
 
 
