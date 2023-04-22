@@ -42,7 +42,7 @@ def _none_to_zero(val):
 
 def main():
     client = InfluxDBClient(
-        '10.0.2.100', 8086, 'coralmonitor', 'coralmonitor', 'coralstats')
+        '10.0.9.51', 8086, 'coralmonitor', 'coralmonitor', 'coralstats')
 
     # Pull arguments from command line.
     parser = argparse.ArgumentParser(description='Enviro Kit Demo')

@@ -87,32 +87,37 @@ class MyEnviroBoard():
         temperature = self._enviro.temperature
         if temperature is not None:
             return temperature
-        temperature = self._bmp280.read_temperature()
-        # BMP280 reports as mC.
-        if temperature is not None:
-            return temperature / 1000.0
-        return None
+        return 0
 
     @property
     def humidity(self):
         """
         Gets the current relative humidity, in percentage.
         """
-        return self._hdc2010.readHumidity()
+        humidity = self._hdc2010.readHumidity()
+        if humidity is not None:
+            return humidity
+        return 0
 
     @property
     def ambient_light(self):
         """
         Gets the ambient light, in lux.
         """
-        return opt3001.get_lux(smbus.SMBus(1), int("0x45", 16))
+        light = opt3001.get_lux(smbus.SMBus(1), int("0x45", 16))
+        if light is not None:
+            return light
+        return 0
 
     @property
     def pressure(self):
         """
         Gets the current atmospheric pressure, in kPa.
         """
-        return self._enviro.pressure
+        pressure = self._enviro.pressure
+        if pressure is not None:
+            return pressure
+        return 0
 
     @property
     def grove_analog(self):
