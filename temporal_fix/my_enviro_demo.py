@@ -88,7 +88,10 @@ def main():
         ]
         print(json_body)
         update_display(enviro.display, msg)
-        client.write_points(json_body)
+        try:
+            client.write_points(json_body)
+        except:
+            print("Couldn't write to database")
         sleep(args.display_duration)
 
 
